@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="Inv" load_steps=12 format=3 uid="uid://cby1t35g0cxek"]
+
+[ext_resource type="Script" path="res://inv_slot.gd" id="2_njya8"]
+[ext_resource type="Resource" uid="uid://d2af78ly1ceft" path="res://gameScenes/inventory/items/tushonka.tres" id="3_f2d5v"]
+[ext_resource type="Script" path="res://inventory.gd" id="3_uv7yv"]
+
+[sub_resource type="Resource" id="Resource_g4kab"]
+script = ExtResource("2_njya8")
+item = ExtResource("3_f2d5v")
+amount = 1
+
+[sub_resource type="Resource" id="Resource_nll18"]
+script = ExtResource("2_njya8")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_3slhc"]
+script = ExtResource("2_njya8")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_kncn0"]
+script = ExtResource("2_njya8")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_i7gp7"]
+script = ExtResource("2_njya8")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_4wbau"]
+script = ExtResource("2_njya8")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_fpaww"]
+script = ExtResource("2_njya8")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_asorl"]
+script = ExtResource("2_njya8")
+amount = 0
+
+[resource]
+script = ExtResource("3_uv7yv")
+slots = Array[ExtResource("2_njya8")]([SubResource("Resource_g4kab"), SubResource("Resource_nll18"), SubResource("Resource_3slhc"), SubResource("Resource_kncn0"), SubResource("Resource_i7gp7"), SubResource("Resource_4wbau"), SubResource("Resource_fpaww"), SubResource("Resource_asorl")])

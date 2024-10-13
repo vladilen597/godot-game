@@ -1,0 +1,142 @@
+[gd_scene load_steps=9 format=3 uid="uid://581dxkuujjhl"]
+
+[ext_resource type="Script" path="res://Game/game.gd" id="1_bky0m"]
+[ext_resource type="FontFile" uid="uid://iwea6w8g542t" path="res://fonts/static/Tiny5-Regular.ttf" id="1_ikt3o"]
+[ext_resource type="StyleBox" uid="uid://uw0vj2wtxhle" path="res://button_style.tres" id="2_csffl"]
+[ext_resource type="Texture2D" uid="uid://del6m8gckqq0k" path="res://icons/health.svg" id="2_wgf6s"]
+[ext_resource type="Texture2D" uid="uid://bq2jg5bnk6512" path="res://icons/energy.svg" id="3_6sqhx"]
+[ext_resource type="Texture2D" uid="uid://ythxm0ghc35c" path="res://icons/interface-bg.svg" id="5_535wf"]
+[ext_resource type="Texture2D" uid="uid://ba0lvhbjf8p76" path="res://icons/token.svg" id="6_fw0lh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxflk"]
+bg_color = Color(0.192157, 0.25098, 0.160784, 1)
+corner_detail = 1
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bky0m")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_top = 1704.0
+offset_right = 1080.0
+offset_bottom = 1920.0
+
+[node name="MapButton" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_ikt3o")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = ExtResource("2_csffl")
+text = "Карта"
+
+[node name="InventoryButton" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_ikt3o")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = ExtResource("2_csffl")
+text = "Инвентарь"
+
+[node name="Button3" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_ikt3o")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = ExtResource("2_csffl")
+text = "Персонаж"
+
+[node name="Button4" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_ikt3o")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = ExtResource("2_csffl")
+text = "Настройки"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 30.0
+scale = Vector2(26.88, 6.301)
+theme_override_styles/panel = SubResource("StyleBoxFlat_pxflk")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 213.0
+scale = Vector2(0.078487, 0.141167)
+texture = ExtResource("5_535wf")
+
+[node name="Controls" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 1080.0
+offset_bottom = 118.0
+
+[node name="HealthContainer" type="HBoxContainer" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 24
+
+[node name="TextureRect" type="TextureRect" parent="Controls/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("2_wgf6s")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="Controls/HealthContainer"]
+modulate = Color(0, 0.705882, 0, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ikt3o")
+theme_override_font_sizes/font_size = 48
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnergyContainer" type="HBoxContainer" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 24
+
+[node name="TextureRect" type="TextureRect" parent="Controls/EnergyContainer"]
+layout_mode = 2
+texture = ExtResource("3_6sqhx")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Controls/EnergyContainer"]
+modulate = Color(0, 0.705882, 0, 1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ikt3o")
+theme_override_font_sizes/font_size = 48
+text = "100"
+
+[node name="MoneyContainer" type="HBoxContainer" parent="Controls"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="TextureRect" type="TextureRect" parent="Controls/MoneyContainer"]
+layout_mode = 2
+texture = ExtResource("6_fw0lh")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Controls/MoneyContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ikt3o")
+theme_override_font_sizes/font_size = 48
+text = "0"
+
+[node name="MainScene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 189.0
+offset_right = 1080.0
+offset_bottom = 1704.0
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="BoxContainer/MapButton" to="." method="_on_map_button_pressed"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dvl0jdg3je8ei"]
+
+[ext_resource type="Script" path="res://gameScenes/inventory/inventory_item.gd" id="1_jat2q"]
+[ext_resource type="Texture2D" uid="uid://c7wgm5hgo3etm" path="res://icons/Items/ai2.svg" id="2_20ob6"]
+
+[resource]
+script = ExtResource("1_jat2q")
+name = "first_aid_kit"
+texture = ExtResource("2_20ob6")
+description = "«Аптечка АИ-2. Простая, но надежная. Внутри — бинты, антисептики и пара таблеток. Всё, что нужно, чтобы справиться с мелкими травмами. Не панацея, но в этом мире — настоящая находка.»"

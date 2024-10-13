@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://d11ugtdxx0igi"]
+
+[ext_resource type="Script" path="res://gameScenes/MapTab/Medbay/medbay.gd" id="1_ajt2l"]
+[ext_resource type="Texture2D" uid="uid://crk437g1ss3un" path="res://Game/hideout/medbay-bg.png" id="1_ynqm5"]
+[ext_resource type="PackedScene" uid="uid://x135lqek6kle" path="res://Game/hideout/medic.aseprite" id="2_5t6l6"]
+[ext_resource type="FontFile" uid="uid://iwea6w8g542t" path="res://fonts/static/Tiny5-Regular.ttf" id="4_7fdx5"]
+[ext_resource type="Texture2D" uid="uid://d3qmqxo2xjl54" path="res://icons/dialogue.png" id="4_yhast"]
+[ext_resource type="StyleBox" uid="uid://uw0vj2wtxhle" path="res://button_style.tres" id="5_u4x2c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4666n"]
+
+[node name="Medbay" type="Node2D"]
+script = ExtResource("1_ajt2l")
+
+[node name="MedbayBackground" type="Sprite2D" parent="."]
+position = Vector2(540, 756)
+scale = Vector2(1, 0.99802)
+texture = ExtResource("1_ynqm5")
+
+[node name="medic" parent="MedbayBackground" instance=ExtResource("2_5t6l6")]
+position = Vector2(28, 260.516)
+scale = Vector2(0.418519, 0.418519)
+
+[node name="Panel" type="Panel" parent="MedbayBackground/medic"]
+custom_minimum_size = Vector2(100, 100)
+anchors_preset = -1
+anchor_left = 0.128
+anchor_top = -0.246
+anchor_right = 0.659
+anchor_bottom = -0.031
+offset_left = -654.24
+offset_top = -642.31
+offset_right = -501.72
+offset_bottom = -719.035
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4666n")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MedbayBackground/medic/Panel"]
+offset_right = 726.0
+offset_bottom = 249.0
+texture = ExtResource("4_yhast")
+region_rect = Rect2(-0.138462, 0.0163674, 304.152, 210.744)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 8
+patch_margin_bottom = 58
+
+[node name="Label" type="Label" parent="MedbayBackground/medic/Panel/NinePatchRect"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 19.0
+offset_right = 707.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("4_7fdx5")
+theme_override_font_sizes/font_size = 72
+text = "Ну здорово, с чем пожаловал?"
+autowrap_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_left = 192.0
+offset_top = 1368.0
+offset_right = 896.0
+offset_bottom = 1471.0
+
+[node name="BuyButton" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_7fdx5")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = ExtResource("5_u4x2c")
+text = "Купить"
+
+[node name="SellButton" type="Button" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_7fdx5")
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = ExtResource("5_u4x2c")
+text = "Продать"

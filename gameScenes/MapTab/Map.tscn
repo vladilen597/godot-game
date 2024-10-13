@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://ugqip5yet1oo"]
+
+[ext_resource type="Script" path="res://gameScenes/MapTab/map.gd" id="1_j6y2p"]
+[ext_resource type="Resource" uid="uid://d2af78ly1ceft" path="res://gameScenes/inventory/items/tushonka.tres" id="2_doop8"]
+[ext_resource type="Resource" uid="uid://dvl0jdg3je8ei" path="res://gameScenes/inventory/items/first_aid_kit.tres" id="3_3gamq"]
+[ext_resource type="FontFile" uid="uid://iwea6w8g542t" path="res://fonts/static/Tiny5-Regular.ttf" id="4_d75af"]
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_j6y2p")
+item = ExtResource("2_doop8")
+item2 = ExtResource("3_3gamq")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Map"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 168.0
+offset_top = 408.0
+offset_right = 349.0
+offset_bottom = 439.0
+scale = Vector2(4.36801, 3.85377)
+theme_override_fonts/font = ExtResource("4_d75af")
+text = "В мед. отсек"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 168.0
+offset_top = 568.0
+offset_right = 349.0
+offset_bottom = 599.0
+scale = Vector2(4.36801, 3.85377)
+theme_override_fonts/font = ExtResource("4_d75af")
+text = "Добавить аптечку
+"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 168.0
+offset_top = 736.0
+offset_right = 959.0
+offset_bottom = 903.0
+theme_override_fonts/font = ExtResource("4_d75af")
+theme_override_font_sizes/font_size = 64
+text = "Добавить Тушенку"
+
+[connection signal="pressed" from="Button" to="." method="_on_to_medbay_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_add_medkit_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://d2af78ly1ceft"]
+
+[ext_resource type="Script" path="res://gameScenes/inventory/inventory_item.gd" id="1_e3kcs"]
+[ext_resource type="Texture2D" uid="uid://fefv1nvreyv6" path="res://icons/Items/tushonka.svg" id="2_ea1uc"]
+
+[resource]
+script = ExtResource("1_e3kcs")
+name = "Тушонка"
+texture = ExtResource("2_ea1uc")
+description = "«Говяжья тушенка. Старая банка, но внутри — вкусное мясо. Просто, сытно и поможет дотянуть до следующего дня. Ничего лишнего.»"

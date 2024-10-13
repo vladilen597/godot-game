@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://but1u7hvulya7"]
+
+[ext_resource type="Script" path="res://gameScenes/inventory/inv_ui_slot.gd" id="1_csfkk"]
+[ext_resource type="Texture2D" uid="uid://fefv1nvreyv6" path="res://icons/Items/tushonka.svg" id="2_tcruo"]
+[ext_resource type="FontFile" uid="uid://iwea6w8g542t" path="res://fonts/static/Tiny5-Regular.ttf" id="3_obuta"]
+[ext_resource type="Texture2D" uid="uid://dsw7epa7o3fwf" path="res://icons/backpack-foreground.png" id="4_3gxo4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_berfy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ungwu"]
+
+[node name="inv_ui_slot" type="Panel"]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_berfy")
+script = ExtResource("1_csfkk")
+
+[node name="inv_ui_slot_button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 199.0
+
+[node name="CenterContainer" type="CenterContainer" parent="inv_ui_slot_button"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 199.0
+offset_bottom = 199.0
+
+[node name="Panel" type="Panel" parent="inv_ui_slot_button/CenterContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ungwu")
+
+[node name="item_display" type="Sprite2D" parent="inv_ui_slot_button/CenterContainer/Panel"]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_tcruo")
+
+[node name="Label" type="Label" parent="inv_ui_slot_button/CenterContainer/Panel"]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 53.0
+offset_right = 93.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("3_obuta")
+theme_override_font_sizes/font_size = 42
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="inv_ui_slot_button"]
+custom_minimum_size = Vector2(200, 64)
+layout_mode = 0
+offset_top = 72.0
+offset_right = 200.0
+offset_bottom = 136.0
+texture = ExtResource("4_3gxo4")
+
+[connection signal="pressed" from="inv_ui_slot_button" to="." method="_on_inv_ui_slot_button_pressed"]
+[connection signal="ready" from="inv_ui_slot_button" to="." method="_on_inv_ui_slot_button_ready"]

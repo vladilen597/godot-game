@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://lp7ue1en0ewf"]
+
+[ext_resource type="FontFile" uid="uid://iwea6w8g542t" path="res://fonts/static/Tiny5-Regular.ttf" id="1_1k1fi"]
+[ext_resource type="Script" path="res://gameScenes/player.gd" id="1_oyrq3"]
+[ext_resource type="Texture2D" uid="uid://b3txm67o8ag1y" path="res://icons/backpack.png" id="2_1f1cm"]
+[ext_resource type="PackedScene" uid="uid://but1u7hvulya7" path="res://gameScenes/inventory/inv_ui_slot.tscn" id="4_6sgyc"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchor_right = 0.993
+anchor_bottom = 0.962
+offset_right = 7.55994
+offset_bottom = -335.04
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oyrq3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_top = 8.0
+offset_right = 1080.0
+offset_bottom = 1504.0
+texture = ExtResource("2_1f1cm")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 264.0
+offset_right = 940.0
+offset_bottom = 1400.0
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="inv_ui_slot1" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot2" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot3" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot4" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot5" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot6" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot7" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot8" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 400.0
+offset_top = 96.0
+offset_right = 616.0
+offset_bottom = 168.0
+theme_override_fonts/font = ExtResource("1_1k1fi")
+theme_override_font_sizes/font_size = 64
+text = "Рюкзак"
+
+[node name="ItemPopup" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 40.0
+offset_top = 488.0
+offset_right = 1016.0
+offset_bottom = 928.0
+
+[node name="ItemDescription" type="Label" parent="ItemPopup"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 656.0
+offset_bottom = 367.0
+theme_override_fonts/font = ExtResource("1_1k1fi")
+theme_override_font_sizes/font_size = 42
+text = "«Аптечка АИ-2. Простая, но надежная. Внутри — бинты, антисептики и пара таблеток. Всё, что нужно, чтобы справиться с мелкими травмами. Не панацея, но в этом мире — настоящая находка.»"
+autowrap_mode = 2

@@ -1,0 +1,160 @@
+[gd_scene load_steps=17 format=3 uid="uid://lp7ue1en0ewf"]
+
+[ext_resource type="FontFile" uid="uid://iwea6w8g542t" path="res://fonts/static/Tiny5-Regular.ttf" id="1_1k1fi"]
+[ext_resource type="Script" path="res://gameScenes/player.gd" id="1_oyrq3"]
+[ext_resource type="Texture2D" uid="uid://b3txm67o8ag1y" path="res://icons/backpack.png" id="2_1f1cm"]
+[ext_resource type="PackedScene" uid="uid://but1u7hvulya7" path="res://gameScenes/inventory/inv_ui_slot.tscn" id="4_6sgyc"]
+[ext_resource type="Texture2D" uid="uid://fefv1nvreyv6" path="res://icons/Items/tushonka.svg" id="5_73sd8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_etckl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d15hj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fw15m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wpqd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3df78"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3bv8n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iodj8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xnomg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f5p3t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ci32w"]
+bg_color = Color(0, 0, 0, 0.705882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuyvd"]
+bg_color = Color(0.0392157, 0.14902, 0, 0.784314)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchor_right = 0.993
+anchor_bottom = 0.962
+offset_right = 7.55994
+offset_bottom = -335.04
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oyrq3")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_top = 8.0
+offset_right = 1080.0
+offset_bottom = 1504.0
+texture = ExtResource("2_1f1cm")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 264.0
+offset_right = 940.0
+offset_bottom = 1400.0
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="inv_ui_slot1" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot2" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot3" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot4" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot5" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot6" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot7" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="inv_ui_slot8" parent="ScrollContainer/GridContainer" instance=ExtResource("4_6sgyc")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 400.0
+offset_top = 96.0
+offset_right = 616.0
+offset_bottom = 168.0
+theme_override_fonts/font = ExtResource("1_1k1fi")
+theme_override_font_sizes/font_size = 64
+text = "Рюкзак"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 1080.0
+offset_bottom = 1504.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_etckl")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_d15hj")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fw15m")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_1wpqd")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_3df78")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_3bv8n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_iodj8")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_xnomg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f5p3t")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ci32w")
+
+[node name="ItemPopup" type="Panel" parent="Button"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 544.0
+offset_right = 1024.0
+offset_bottom = 984.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tuyvd")
+
+[node name="ItemDescription" type="Label" parent="Button/ItemPopup"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 656.0
+offset_bottom = 367.0
+theme_override_fonts/font = ExtResource("1_1k1fi")
+theme_override_font_sizes/font_size = 42
+text = "«Аптечка АИ-2. Простая, но надежная. Внутри — бинты, антисептики и пара таблеток. Всё, что нужно, чтобы справиться с мелкими травмами. Не панацея, но в этом мире — настоящая находка.»"
+autowrap_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Button/ItemPopup"]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 24.0
+offset_right = 920.0
+offset_bottom = 224.0
+
+[node name="Panel" type="Panel" parent="Button/ItemPopup/CenterContainer"]
+layout_mode = 2
+
+[node name="ItemIcon" type="Sprite2D" parent="Button/ItemPopup/CenterContainer/Panel"]
+position = Vector2(-1.90735e-06, -4)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_73sd8")
+
+[node name="Button" type="Button" parent="Button/ItemPopup"]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 368.0
+offset_right = 935.0
+offset_bottom = 424.0
+theme_override_fonts/font = ExtResource("1_1k1fi")
+theme_override_font_sizes/font_size = 42
+text = "Использовать"
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="pressed" from="Button" to="." method="_on_background_popup_pressed"]
