@@ -24,6 +24,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bky0m")
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_top = 192.0
+offset_right = 1080.0
+offset_bottom = 1704.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1080, 1512)
+render_target_update_mode = 4
+
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 0
 offset_top = 1704.0
@@ -180,14 +191,8 @@ theme_override_fonts/font = ExtResource("1_ikt3o")
 theme_override_font_sizes/font_size = 48
 text = "100"
 
-[node name="MainScene" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_top = 189.0
-offset_right = 1080.0
-offset_bottom = 1704.0
-
 [node name="StatsBar" type="HBoxContainer" parent="."]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 40.0
 offset_right = 1169.0
